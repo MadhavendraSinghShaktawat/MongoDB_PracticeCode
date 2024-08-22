@@ -3,11 +3,16 @@ const {MongoClient, ServerApiVersion} = require('mongodb')
 const app = express()
 const PORT = 5000
 
+//user: marvelcomicuniverse12
+//password: Ucz8QvgjQ4JIu8QW
+//connectionString: mongodb+srv://marvelcomicuniverse12:<db_password>@firstproject-cluster.bfi3d.mongodb.net/FirstProject-cluster
+const url = 'mongodb+srv://marvelcomicuniverse12:Ucz8QvgjQ4JIu8QW@firstproject-cluster.bfi3d.mongodb.net/Students-Db'
+
 
 //* Connecting to MongoDB
 
 //? 1. Create the client
-const client = new MongoClient('some mongodb url', {
+const client = new MongoClient(url, {
     serverApi: {
         version: ServerApiVersion.v1,
         strict: true,
@@ -27,6 +32,7 @@ const connectDB = async ()=> {
     }
 }
 
+connectDB();
 
 //* Starting the server
 app.listen(PORT, () => console.log(`Example app listening on port ${PORT}!`))
